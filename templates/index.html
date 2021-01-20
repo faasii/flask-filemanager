@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/css/font-awesome.css')}}">
     <title>Document</title>
 </head>
 <body>
@@ -67,14 +68,28 @@
                   </tr>
                 </thead>
                 <tbody>
-                 {% for dic in dic %} 
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>{{dic.name}}</td>
-                    <td>{{dic.size}} Kb</td>
-                    <td>{{dic.date}}</td>
-                  </tr>
-                  {% endfor %}
+
+             
+                {% for dic in dic if dic.type == 16895 %} 
+                    
+                        <tr>
+                          <th scope="row">1</th>
+                          <td><i class="fa fa-folder" aria-hidden="true"></i>  {{dic.name}}</td>
+                          <td>{{dic.size}} Kb</td>
+                          <td>{{dic.date}}</td>
+                        </tr>
+                {% endfor %}
+                    
+                {% for dic in dic if dic.type == 33206 %}
+                      <tr>
+                        <th scope="row">1</th>
+                        <td><i class="fa fa-file" aria-hidden="true"></i>  {{dic.name}}</td>
+                        <td>{{dic.size}} Kb</td>
+                        <td>{{dic.date}}</td>
+                      </tr> 
+                   
+
+                {% endfor %}
                 </tbody>
               </table>
 

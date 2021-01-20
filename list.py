@@ -10,21 +10,20 @@ def convert_date(timestamp):
 def get_files():
     dir_entries = scandir('storage/')
     dic = []
-   
+    fold = []
     for entry in dir_entries:
-        if entry.is_file():
-            ob = {}
-            info = entry.stat()
-            print(entry.name)
-            #print(str(entry.name) + str(convert_date(info.st_mtime)))
-            ob['size'] = str(round(info.st_size / 1024, 3))
-            ob['name'] = entry.name
-            ob['date'] = convert_date(info.st_mtime)
-            dic.append(ob)
-            print(ob)
-            #print(dic)
+        
+        ob = {}
+            
+        info = entry.stat()
+        #print(info)
+        #print(str(entry.name) + str(convert_date(info.st_mtime)))
+        ob['size'] = str(round(info.st_size / 1024, 3))
+        ob['name'] = entry.name
+        ob['date'] = convert_date(info.st_mtime)
+        ob['type'] = info.st_mode
+        dic.append(ob)
+               
 
-    print(dic)
 
-
-get_files()            
+get_files()    
