@@ -1,0 +1,10 @@
+.heading{
+    padding-left: 20px;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+
+.bar{
+    background: #f2f2f2;
+}
